@@ -52,7 +52,7 @@ public class SectionE2Activity extends AppCompatActivity {
                 .append("Pregnancies Total: ").append(noOfPreCounter).append(" out of ").append(MainApp.noOfPragnencies));
         bi.btnNext.setText(noOfPreCounter == MainApp.noOfPragnencies ? getString(R.string.nextSection) : getString(R.string.nextPregnancy));
 
-        bi.e105.setOnCheckedChangeListener(((radioGroup, i) -> {
+        /*bi.e105.setOnCheckedChangeListener(((radioGroup, i) -> {
 
             MainApp.twinFlag = i == bi.e105c.getId();
 //            if (i == bi.e105e.getId()) {
@@ -78,27 +78,27 @@ public class SectionE2Activity extends AppCompatActivity {
                 Clear.clearAllFields(bi.fldGrpCVe110);
                 bi.mainContainer2.setVisibility(View.VISIBLE);
 
-              /*  bi.container1.setVisibility(View.GONE);
+              *//*  bi.container1.setVisibility(View.GONE);
                 bi.container2.setVisibility(View.VISIBLE);
                 bi.container3.setVisibility(View.VISIBLE);
                 bi.fldGrpCVe110.setVisibility(View.GONE);
                 Clear.clearAllFields(bi.fldGrpCVe110);
-                Clear.clearAllFields(bi.container1);*/
+                Clear.clearAllFields(bi.container1);*//*
             } else {
                 bi.fldGrpCVd108.setVisibility(View.VISIBLE);
                 bi.fldGrpCVe108.setVisibility(View.VISIBLE);
                 bi.fldGrpCVe109.setVisibility(View.VISIBLE);
                 bi.fldGrpCVe107.setVisibility(View.VISIBLE);
                 bi.fldGrpCVe110.setVisibility(View.VISIBLE);
-                /*bi.container1.setVisibility(View.VISIBLE);*/
-                /*bi.fldGrpCVe110.setVisibility(View.VISIBLE);*/
+                *//*bi.container1.setVisibility(View.VISIBLE);*//*
+         *//*bi.fldGrpCVe110.setVisibility(View.VISIBLE);*//*
                 bi.mainContainer2.setVisibility(View.GONE);
             }
 
-        }));
+        }));*/
 
 
-        bi.e108.setOnCheckedChangeListener(((radioGroup, i) -> {
+        /*bi.e108.setOnCheckedChangeListener(((radioGroup, i) -> {
 
             if (i == bi.e108b.getId()) {
                 bi.mainContainer2.setVisibility(View.VISIBLE);
@@ -112,8 +112,6 @@ public class SectionE2Activity extends AppCompatActivity {
                 bi.mainContainer2.setVisibility(View.GONE);
                 Clear.clearAllFields(bi.mainContainer2);
             }
-
-
             if (i == bi.e105b.getId()
                     || i == bi.e105e.getId()
                     || i == bi.e105f.getId()) {
@@ -121,7 +119,7 @@ public class SectionE2Activity extends AppCompatActivity {
             }
 
 
-        }));
+        }));*/
 
         bi.e106c.setMaxvalue(CONSTANTS.MAXYEAR);
         bi.e106c.setMinvalue(CONSTANTS.MINYEAR);
@@ -239,18 +237,6 @@ public class SectionE2Activity extends AppCompatActivity {
         json.put("_luid", MainApp.fc.getLuid());
         json.put("appversion", MainApp.appInfo.getAppVersion());
         json.put("counter", noOfPreCounter);
-
-        json.put("e104", bi.e104a.isChecked() ? "1"
-                : bi.e104b.isChecked() ? "2"
-                : "0");
-
-        json.put("e105", bi.e105a.isChecked() ? "1"
-                : bi.e105b.isChecked() ? "2"
-                : bi.e105c.isChecked() ? "3"
-                : bi.e105d.isChecked() ? "4"
-                : bi.e105e.isChecked() ? "5"
-                : bi.e105f.isChecked() ? "6"
-                : "0");
 
         json.put("e106a", bi.e106a.getText().toString());
         json.put("e106b", bi.e106b.getText().toString());
