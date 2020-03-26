@@ -194,6 +194,7 @@ public class SectionE2Activity extends AppCompatActivity {
             MainApp.twinFlag = false;
 
         }*/
+
     private void clearContainer() {
         Clear.clearAllFields(bi.container1);
         Clear.clearAllFields(bi.mainContainer2);

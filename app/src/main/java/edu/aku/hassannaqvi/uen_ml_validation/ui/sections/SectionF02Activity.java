@@ -38,13 +38,7 @@ public class SectionF02Activity extends AppCompatActivity {
     private void setUIComponent() {
 
 
-        bi.f121.setOnCheckedChangeListener(((radioGroup, i) -> {
 
-            if (i != bi.f121a.getId()) {
-                Clear.clearAllFields(bi.fldGrp2223);
-            }
-
-        }));
 
         bi.f124.setOnCheckedChangeListener(((radioGroup, i) -> {
 
@@ -64,13 +58,7 @@ public class SectionF02Activity extends AppCompatActivity {
 
         });
 
-        bi.f121.setOnCheckedChangeListener(((radioGroup, i) -> {
 
-            if (i != bi.f121a.getId()) {
-                Clear.clearAllFields(bi.fldGrp2223);
-            }
-
-        }));
 
         bi.f129.setOnCheckedChangeListener(((radioGroup, i) -> {
 
@@ -117,9 +105,6 @@ public class SectionF02Activity extends AppCompatActivity {
     private void SaveDraft() throws JSONException {
 
         JSONObject f1 = new JSONObject();
-
-        f1.put("f121", bi.f121a.isChecked() ? "1" :
-                bi.f121b.isChecked() ? "2" : "0");
 
         f1.put("f122", bi.f122.getText().toString());
 
