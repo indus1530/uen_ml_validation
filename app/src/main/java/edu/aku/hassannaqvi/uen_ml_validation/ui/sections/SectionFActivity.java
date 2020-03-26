@@ -56,7 +56,7 @@ public class SectionFActivity extends AppCompatActivity {
             }
             if (UpdateDB()) {
                 finish();
-                startActivity(new Intent(SectionFActivity.this, SectionF02Activity.class));
+                startActivity(new Intent(this, SectionGActivity.class));
             }
 
         }
