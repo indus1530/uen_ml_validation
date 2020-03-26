@@ -140,15 +140,6 @@ public class SectionLActivity extends AppCompatActivity {
                                                 "0");
         json.put("l10696x", bi.l10696x.getText().toString());
 
-        json.put("l107",
-                bi.l107a.isChecked() ? "1" :
-                        bi.l107b.isChecked() ? "2" :
-                                bi.l107c.isChecked() ? "3" :
-                                        bi.l107d.isChecked() ? "4" :
-                                                bi.l10796.isChecked() ? "96" :
-                                                        "0");
-        json.put("l10796x", bi.l10796x.getText().toString());
-
         json.put("l108",
                 bi.l108a.isChecked() ? "1" :
                         bi.l108b.isChecked() ? "2" :
@@ -231,14 +222,6 @@ public class SectionLActivity extends AppCompatActivity {
                         bi.l113db.isChecked() ? "2" :
                                 bi.l113dc.isChecked() ? "98" :
                                         "0");
-
-        json.put("l114",
-                bi.l114a.isChecked() ? "1" :
-                        bi.l114b.isChecked() ? "2" :
-                                bi.l114c.isChecked() ? "3" :
-                                        bi.l11496.isChecked() ? "96" :
-                                                "0");
-        json.put("l11496x", bi.l11496x.getText().toString());
 
         json.put("l115",
                 bi.l115a.isChecked() ? "1" :
