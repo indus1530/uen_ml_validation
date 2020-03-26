@@ -89,65 +89,12 @@
 
                             </androidx.cardview.widget.CardView>-->
 
-                <!-- j101  Radio   -->
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/fldGrpCVj101"
-                    style="@style/cardView">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            style="@style/i_textview"
-                            android:text="@string/j101" />
-
-                        <TextView
-                            style="@style/i_textviewhint"
-                            android:text="@string/j101hint" />
-
-                        <TextView
-                            style="@style/i_textviewhint"
-                            android:text="@string/j101hint1" />
-
-                        <RadioGroup
-                            android:id="@+id/j101"
-                            style="@style/radiogroup"
-                            android:orientation="horizontal">
-
-                            <RadioButton
-                                android:id="@+id/j101a"
-                                style="@style/radiobutton"
-                                android:layout_width="0dp"
-                                android:layout_weight="1"
-                                android:text="@string/j101a" />
-
-                            <RadioButton
-                                android:id="@+id/j101b"
-                                style="@style/radiobutton"
-                                android:layout_width="0dp"
-                                android:layout_weight="1"
-                                android:text="@string/j101b" />
-
-                            <RadioButton
-                                android:id="@+id/j101c"
-                                style="@style/radiobutton"
-                                android:layout_width="0dp"
-                                android:layout_weight="0.7"
-                                android:text="@string/no" />
-
-                        </RadioGroup>
-
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
 
                 <!-- j102  Radio   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVj102"
-                    style="@style/cardView"
-                    android:visibility='@{j101c.checked? View.VISIBLE : View.GONE}'>
+                    style="@style/cardView">
 
                     <LinearLayout
                         android:layout_width="match_parent"

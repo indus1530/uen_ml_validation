@@ -152,15 +152,6 @@ public class SectionJActivity extends AppCompatActivity {
             }
         });*/
 
-
-        bi.j101.setOnCheckedChangeListener(((radioGroup, i) -> {
-
-            if (i != bi.j101c.getId()) {
-                Clear.clearAllFields(bi.fldGrpCVj102);
-            }
-
-        }));
-
         bi.j102.setOnCheckedChangeListener(((radioGroup, i) -> {
 
             if (i == bi.j102b.getId()) {
@@ -206,10 +197,6 @@ public class SectionJActivity extends AppCompatActivity {
         json.put("j_fm_serial", MainApp.indexKishMWRAChild.getSerialno());
         /*json.put("j_res_fm_uid", res_child.getUid());
         json.put("j_res_fm_serial", res_child.getSerialno());*/
-
-        json.put("j101", bi.j101a.isChecked() ? "1" :
-                bi.j101b.isChecked() ? "2" :
-                        bi.j101c.isChecked() ? "3" : "0");
 
         json.put("j102", bi.j102a.isChecked() ? "1" :
                 bi.j102b.isChecked() ? "2" : "0");
