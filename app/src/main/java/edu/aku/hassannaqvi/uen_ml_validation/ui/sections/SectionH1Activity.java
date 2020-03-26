@@ -7,6 +7,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
@@ -35,19 +36,17 @@ public class SectionH1Activity extends AppCompatActivity {
 
     private void setupSkips() {
 
-        /*//h102
-        bi.h102.setOnCheckedChangeListener((group, checkedId) -> {
-
-            if (checkedId != bi.h102a.getId()) {
-                bi.fldGrpCVh103.setVisibility(View.VISIBLE);
-                bi.fldGrpCVh104.setVisibility(View.VISIBLE);
-            } else {
-                Clear.clearAllFields(bi.fldGrpCVh103);
-                Clear.clearAllFields(bi.fldGrpCVh104);
-                bi.fldGrpCVh103.setVisibility(View.GONE);
-                bi.fldGrpCVh104.setVisibility(View.GONE);
+        bi.h137.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.h137b.getId()) {
+                Clear.clearAllFields(bi.fldGrpSectionHA);
             }
-        });*/
+        }));
+
+        bi.h202.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.h202b.getId()) {
+                Clear.clearAllFields(bi.fldGrpSectionHB);
+            }
+        }));
 
     }
 
@@ -146,7 +145,7 @@ public class SectionH1Activity extends AppCompatActivity {
     }
 
     private boolean formValidation() {
-        return Validator.emptyCheckingContainer(this, bi.GrpName);
+        return Validator.emptyCheckingContainer(this, bi.fldGrpSectionH);
 
     }
 
