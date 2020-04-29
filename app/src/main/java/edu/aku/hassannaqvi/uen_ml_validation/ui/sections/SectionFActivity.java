@@ -112,11 +112,6 @@ public class SectionFActivity extends AppCompatActivity {
                 bi.f112b.isChecked() ? "2" :
                         bi.f112c.isChecked() ? "98" : "0");
 
-        json.put("f114", bi.f114a.isChecked() ? "1" :
-                bi.f114b.isChecked() ? "2" : "0");
-
-        json.put("f121", bi.f121a.isChecked() ? "1" :
-                bi.f121b.isChecked() ? "2" : "0");
 
         MainApp.kish.setsF(String.valueOf(json));
 
