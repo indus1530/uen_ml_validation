@@ -38,8 +38,6 @@ public class SectionF02Activity extends AppCompatActivity {
     private void setUIComponent() {
 
 
-
-
         bi.f124.setOnCheckedChangeListener(((radioGroup, i) -> {
 
             if (i != bi.f124a.getId()) {
@@ -59,13 +57,13 @@ public class SectionF02Activity extends AppCompatActivity {
         });
 
 
-
         bi.f129.setOnCheckedChangeListener(((radioGroup, i) -> {
 
             if (i == bi.f129a.getId()) {
                 Clear.clearAllFields(bi.fldGrpCVf130);
             }
         }));
+
 
         bi.f129.setOnCheckedChangeListener(((radioGroup, i) -> {
 

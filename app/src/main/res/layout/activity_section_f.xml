@@ -1,5 +1,4 @@
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
 
@@ -617,7 +616,7 @@
             </LinearLayout>
 
 
-            <!-- f111  Radio   -->
+            <!--&lt;!&ndash; f111  Radio   &ndash;&gt;
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVf111"
                 style="@style/cardView">
@@ -657,7 +656,7 @@
 
                 </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
+            </androidx.cardview.widget.CardView>-->
 
             <!-- f112  Radio   -->
             <androidx.cardview.widget.CardView
@@ -705,7 +704,7 @@
 
             </androidx.cardview.widget.CardView>
 
-            <!-- f113  EditText & CheckBox   -->
+            <!--&lt;!&ndash; f113  EditText & CheckBox   &ndash;&gt;
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVf113"
                 style="@style/cardView"
@@ -750,7 +749,7 @@
 
                 </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
+            </androidx.cardview.widget.CardView>-->
 
             <!-- f114  Radio   -->
             <androidx.cardview.widget.CardView
@@ -792,14 +791,14 @@
             </androidx.cardview.widget.CardView>
 
 
-            <LinearLayout
+            <!--<LinearLayout
                 android:id="@+id/fldGrp1520"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:visibility='@{f114a.checked? View.VISIBLE : View.GONE}'>
 
-                <!-- f115  Radio   -->
+                &lt;!&ndash; f115  Radio   &ndash;&gt;
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVf115"
                     style="@style/cardView">
@@ -856,7 +855,7 @@
 
                 </androidx.cardview.widget.CardView>
 
-                <!-- f116  CheckBox   -->
+                &lt;!&ndash; f116  CheckBox   &ndash;&gt;
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVf116"
                     style="@style/cardView">
@@ -928,7 +927,7 @@
 
                 </androidx.cardview.widget.CardView>
 
-                <!-- f117  Radio   -->
+                &lt;!&ndash; f117  Radio   &ndash;&gt;
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVf117"
                     style="@style/cardView">
@@ -977,7 +976,7 @@
 
                 </androidx.cardview.widget.CardView>
 
-                <!-- f118  Radio   -->
+                &lt;!&ndash; f118  Radio   &ndash;&gt;
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVf118"
                     style="@style/cardView">
@@ -1040,7 +1039,7 @@
 
                 </androidx.cardview.widget.CardView>
 
-                <!-- f119  Radio   -->
+                &lt;!&ndash; f119  Radio   &ndash;&gt;
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVf119"
                     style="@style/cardView">
@@ -1079,7 +1078,7 @@
 
                 </androidx.cardview.widget.CardView>
 
-                <!-- f120  Input-Numeric   -->
+                &lt;!&ndash; f120  Input-Numeric   &ndash;&gt;
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVf120"
                     style="@style/cardView"
@@ -1126,7 +1125,46 @@
 
                 </androidx.cardview.widget.CardView>
 
-            </LinearLayout>
+            </LinearLayout>-->
+
+            <!-- f121  Radio   -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fldGrpCVf121"
+                style="@style/cardView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/i_textview"
+                        android:text="@string/f121" />
+
+                    <RadioGroup
+                        android:id="@+id/f121"
+                        style="@style/radiogroup"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/f121a"
+                            style="@style/radiobutton"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:text="@string/yes" />
+
+                        <RadioButton
+                            android:id="@+id/f121b"
+                            style="@style/radiobutton"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:text="@string/no" />
+
+                    </RadioGroup>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
 
 
             <LinearLayout

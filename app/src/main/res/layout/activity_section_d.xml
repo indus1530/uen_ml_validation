@@ -678,7 +678,7 @@
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
 
-                    <!-- d110  Radio   -->
+                    <!--&lt;!&ndash; d110  Radio   &ndash;&gt;
                     <androidx.cardview.widget.CardView
                         android:id="@+id/fldGrpCVd110"
                         style="@style/cardView">
@@ -763,9 +763,9 @@
                                     android:text="@string/d110m" />
                             </RadioGroup>
                         </LinearLayout>
-                    </androidx.cardview.widget.CardView>
+                    </androidx.cardview.widget.CardView>-->
 
-                    <!-- d111  Radio   -->
+                    <!--&lt;!&ndash; d111  Radio   &ndash;&gt;
                     <androidx.cardview.widget.CardView
                         android:id="@+id/fldGrpCVd111"
                         style="@style/cardView">
@@ -839,7 +839,7 @@
                                     android:text="@string/d111j" />
                             </RadioGroup>
                         </LinearLayout>
-                    </androidx.cardview.widget.CardView>
+                    </androidx.cardview.widget.CardView>-->
 
                 </LinearLayout>
 

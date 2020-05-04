@@ -35,10 +35,10 @@ public class SectionFActivity extends AppCompatActivity {
 
     void setUIComponent() {
 
-        bi.f101Name.setText(new StringBuilder(MainApp.selectedKishMWRA.getName().toUpperCase()).append("\n")
+        /*bi.f101Name.setText(new StringBuilder(MainApp.selectedKishMWRA.getName().toUpperCase()).append("\n")
                 .append(getResources().getString(R.string.d101))
                 .append(":")
-                .append(MainApp.selectedKishMWRA.getSerialno()));
+                .append(MainApp.selectedKishMWRA.getSerialno()));*/
 
         bi.f101.setOnCheckedChangeListener(((radioGroup, i) -> {
             if (i == bi.f101b.getId()) {
@@ -111,6 +111,12 @@ public class SectionFActivity extends AppCompatActivity {
         json.put("f112", bi.f112a.isChecked() ? "1" :
                 bi.f112b.isChecked() ? "2" :
                         bi.f112c.isChecked() ? "98" : "0");
+
+        json.put("f114", bi.f114a.isChecked() ? "1" :
+                bi.f114b.isChecked() ? "2" : "0");
+
+        json.put("f121", bi.f121a.isChecked() ? "1" :
+                bi.f121b.isChecked() ? "2" : "0");
 
 
         MainApp.kish.setsF(String.valueOf(json));

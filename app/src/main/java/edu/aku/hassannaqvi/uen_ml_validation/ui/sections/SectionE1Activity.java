@@ -21,7 +21,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import edu.aku.hassannaqvi.uen_ml_validation.CONSTANTS;
 import edu.aku.hassannaqvi.uen_ml_validation.R;
 import edu.aku.hassannaqvi.uen_ml_validation.contracts.FamilyMembersContract;
 import edu.aku.hassannaqvi.uen_ml_validation.contracts.MWRAContract;
@@ -96,7 +95,7 @@ public class SectionE1Activity extends AppCompatActivity {
     }
 
     public void BtnContinue() {
-        if (formValidation()) {
+        /*if (formValidation()) {
             try {
                 SaveDraft();
             } catch (Exception e) {
@@ -117,7 +116,23 @@ public class SectionE1Activity extends AppCompatActivity {
                 finish();
                 startActivity(next);
             }
+        }*/
+
+        if (formValidation()) {
+            try {
+                SaveDraft();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            if (UpdateDB()) {
+                finish();
+                startActivity(new Intent(this, SectionE3Activity.class));
+            } else {
+                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+            }
+
         }
+
     }
 
     private boolean UpdateDB() {

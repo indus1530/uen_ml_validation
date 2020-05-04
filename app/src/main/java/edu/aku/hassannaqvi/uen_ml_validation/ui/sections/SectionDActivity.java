@@ -211,7 +211,7 @@ public class SectionDActivity extends AppCompatActivity {
         fmc.setAge(bi.d109.getText().toString());
         fmc.setMonthfm(bi.d109a.getText().toString().trim().isEmpty() ? "0" : bi.d109a.getText().toString());
 
-        sd.put("d110", bi.d110a.isChecked() ? "0"
+        /*sd.put("d110", bi.d110a.isChecked() ? "0"
                 : bi.d110b.isChecked() ? "1"
                 : bi.d110c.isChecked() ? "2"
                 : bi.d110d.isChecked() ? "3"
@@ -224,9 +224,9 @@ public class SectionDActivity extends AppCompatActivity {
                 : bi.d110k.isChecked() ? "10"
                 : bi.d110l.isChecked() ? "98"
                 : bi.d110m.isChecked() ? "99"
-                : "0");
+                : "0");*/
 
-        sd.put("d111", bi.d111a.isChecked() ? "1"
+        /*sd.put("d111", bi.d111a.isChecked() ? "1"
                 : bi.d111b.isChecked() ? "2"
                 : bi.d111c.isChecked() ? "3"
                 : bi.d111d.isChecked() ? "4"
@@ -236,7 +236,7 @@ public class SectionDActivity extends AppCompatActivity {
                 : bi.d111h.isChecked() ? "8"
                 : bi.d111i.isChecked() ? "9"
                 : bi.d111j.isChecked() ? "99"
-                : "0");
+                : "0");*/
 
         sd.put("d115", bi.d115a.isChecked() ? "1"
                 : bi.d115b.isChecked() ? "2"
@@ -372,14 +372,14 @@ public class SectionDActivity extends AppCompatActivity {
             }
         });
 
-        bi.d105.setOnCheckedChangeListener((group, checkedId) -> {
+        /*bi.d105.setOnCheckedChangeListener((group, checkedId) -> {
             if (fmc.getGender().equals("2") && !bi.d105b.isChecked())
                 bi.d111a.setEnabled(true);
             else {
                 bi.d111a.setEnabled(false);
                 bi.d111a.setChecked(false);
             }
-        });
+        });*/
 
         bi.d109.addTextChangedListener(new TextWatcher() {
             @Override
@@ -418,27 +418,27 @@ public class SectionDActivity extends AppCompatActivity {
             bi.fldGrpCVd105.setVisibility(View.GONE);
         }
 
-        Clear.clearAllFields(bi.d110, false);
-        Clear.clearAllFields(bi.d111, false);
+        //Clear.clearAllFields(bi.d110, false);
+        //Clear.clearAllFields(bi.d111, false);
 
-        if (calAge > 0 && calAge <= 2) {
+        /*if (calAge > 0 && calAge <= 2) {
             bi.d110a.setEnabled(true);
             bi.d110b.setEnabled(true);
             bi.d110m.setEnabled(true);
             bi.d111j.setEnabled(true);
             bi.d111g.setEnabled(true);
-        }
+        }*/
 
-        if (calAge > 2 && calAge <= 5) {
+        /*if (calAge > 2 && calAge <= 5) {
             bi.d110a.setEnabled(true);
             bi.d110b.setEnabled(true);
             bi.d110c.setEnabled(true);
             bi.d110m.setEnabled(true);
             bi.d111g.setEnabled(true);
             bi.d111j.setEnabled(true);
-        }
+        }*/
 
-        if (calAge > 5 && calAge <= 10) {
+        /*if (calAge > 5 && calAge <= 10) {
             bi.d110a.setEnabled(true);
             bi.d110d.setEnabled(true);
             bi.d110e.setEnabled(true);
@@ -449,9 +449,9 @@ public class SectionDActivity extends AppCompatActivity {
 
             bi.d110b.setEnabled(true);
             bi.d110c.setEnabled(true);
-        }
+        }*/
 
-        if (calAge > 10 && calAge <= 20) {
+        /*if (calAge > 10 && calAge <= 20) {
             bi.d110a.setEnabled(true);
             bi.d110e.setEnabled(true);
             bi.d110f.setEnabled(true);
@@ -472,13 +472,13 @@ public class SectionDActivity extends AppCompatActivity {
             bi.d110d.setEnabled(true);
             bi.d110b.setEnabled(true);
             bi.d110c.setEnabled(true);
-        }
+        }*/
 
-        if (calAge > 20) {
+        /*if (calAge > 20) {
             Clear.clearAllFields(bi.d110, true);
             Clear.clearAllFields(bi.d111, true);
 
-        }
+        }*/
 
     }
 

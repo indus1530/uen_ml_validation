@@ -16,17 +16,12 @@ import com.validatorcrawler.aliazaz.Validator;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.List;
-
 import edu.aku.hassannaqvi.uen_ml_validation.R;
-import edu.aku.hassannaqvi.uen_ml_validation.contracts.FamilyMembersContract;
 import edu.aku.hassannaqvi.uen_ml_validation.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_ml_validation.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_ml_validation.core.MainApp;
 import edu.aku.hassannaqvi.uen_ml_validation.databinding.ActivitySectionE3Binding;
 import edu.aku.hassannaqvi.uen_ml_validation.utils.Util;
-
-import static edu.aku.hassannaqvi.uen_ml_validation.ui.list_activity.FamilyMembersListActivity.mainVModel;
 
 public class SectionE3Activity extends AppCompatActivity {
 
@@ -74,7 +69,7 @@ public class SectionE3Activity extends AppCompatActivity {
     }
 
     public void BtnContinue() {
-        if (formValidation()) {
+        /*if (formValidation()) {
             try {
                 SaveDraft();
             } catch (Exception e) {
@@ -92,7 +87,24 @@ public class SectionE3Activity extends AppCompatActivity {
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
+        }*/
+
+
+        if (formValidation()) {
+            try {
+                SaveDraft();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            if (UpdateDB()) {
+                finish();
+                startActivity(new Intent(this, SectionFActivity.class));
+            } else {
+                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+            }
+
         }
+
     }
 
     private boolean UpdateDB() {
