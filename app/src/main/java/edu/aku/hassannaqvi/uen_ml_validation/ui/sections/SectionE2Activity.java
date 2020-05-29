@@ -107,24 +107,19 @@ public class SectionE2Activity extends AppCompatActivity {
                 e.printStackTrace();
             }
             if (UpdateDB()) {
-                if (MainApp.twinFlag) {
-                    openDialog();
+                if (MainApp.noOfPragnencies != noOfPreCounter) {
+                    finish();
+                    startActivity(new Intent(SectionE2Activity.this, SectionE2Activity.class)
+                            .putExtra(CONSTANTS.MWRA_INFO, mwraContract));
                 } else {
-                    if (MainApp.noOfPragnencies != noOfPreCounter) {
+                    noOfPreCounter = 0;
+                    if (MainApp.pragnantWoman.getFirst().size() > 0) {
                         finish();
-                        startActivity(new Intent(SectionE2Activity.this, SectionE2Activity.class)
-                                .putExtra(CONSTANTS.MWRA_INFO, mwraContract));
+                        startActivity(new Intent(SectionE2Activity.this, SectionE1Activity.class));
                     } else {
-                        noOfPreCounter = 0;
-                        if (MainApp.pragnantWoman.getFirst().size() > 0) {
-                            finish();
-                            startActivity(new Intent(SectionE2Activity.this, SectionE1Activity.class));
-                        } else {
-                            finish();
-                            startActivity(new Intent(SectionE2Activity.this, SectionE3Activity.class));
-                        }
+                        finish();
+                        startActivity(new Intent(SectionE2Activity.this, SectionE3Activity.class));
                     }
-
                 }
             }
 
