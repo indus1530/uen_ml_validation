@@ -46,6 +46,7 @@ public class SectionDActivity extends AppCompatActivity {
     private Pair<List<Integer>, List<String>> womenSLst;
     private FamilyMembersContract motherFMC, fatheFMC;
     private String motherSerial, fatherSerial;
+    boolean dtFlag = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,17 +70,13 @@ public class SectionDActivity extends AppCompatActivity {
             bi.fldGrpSectionD02.setVisibility(View.GONE);
             fmc = new FamilyMembersContract();
         } else {
-            /*bi.d102Name.setText(new StringBuilder(fmc.getName().toUpperCase()).append("\n")
-                    .append(getResources().getString(R.string.d101name))
-                    .append(":")
-                    .append(fmc.getSerialno()));*/
             bi.d102Name.setText(new StringBuilder(fmc.getName()));
             bi.d102Num.setText(new StringBuilder(fmc.getSerialno()));
             bi.fldGrpSectionD01.setVisibility(View.GONE);
             bi.fldGrpSectionD02.setVisibility(View.VISIBLE);
 
-            menSLst = mainVModel.getAllMenWomenName(1, Integer.valueOf(fmc.getSerialno()));
-            womenSLst = mainVModel.getAllMenWomenName(2, Integer.valueOf(fmc.getSerialno()));
+            menSLst = mainVModel.getAllMenWomenName(1, Integer.parseInt(fmc.getSerialno()));
+            womenSLst = mainVModel.getAllMenWomenName(2, Integer.parseInt(fmc.getSerialno()));
 
             List<String> menLst = new ArrayList<String>() {
                 {
@@ -251,12 +248,12 @@ public class SectionDActivity extends AppCompatActivity {
         // Update in ViewModel
         mainVModel.updateFamilyMembers(fmc);
 
-        if (Integer.valueOf(fmc.getAge()) >= 15 && Integer.valueOf(fmc.getAge()) < 49 && fmc.getGender().equals("2") && !bi.d105b.isChecked())
+        if (Integer.parseInt(fmc.getAge()) >= 15 && Integer.parseInt(fmc.getAge()) < 49 && fmc.getGender().equals("2") && !bi.d105b.isChecked())
             mainVModel.setMWRA(fmc);
-        else if (Integer.valueOf(fmc.getAge()) < 5) {
+        else if (Integer.parseInt(fmc.getAge()) < 5) {
             mainVModel.setChildU5(fmc);
             if (motherFMC == null) return;
-            if (Integer.valueOf(motherFMC.getAge()) >= 15 && Integer.valueOf(motherFMC.getAge()) < 49 && motherFMC.getAvailable().equals("1"))
+            if (Integer.parseInt(motherFMC.getAge()) >= 15 && Integer.parseInt(motherFMC.getAge()) < 49 && motherFMC.getAvailable().equals("1"))
                 mainVModel.setMwraChildU5(motherFMC);
         }
 
@@ -267,6 +264,10 @@ public class SectionDActivity extends AppCompatActivity {
         else {
             if (!Validator.emptyCheckingContainer(this, bi.fldGrpSectionD))
                 return false;
+            if (!dtFlag) {
+                Toast.makeText(this, "Invalid date!", Toast.LENGTH_SHORT).show();
+                return false;
+            }
             if (!Validator.emptyEditTextPicker(this, bi.d109))
                 return false;
             if (!checkingParentsAge()) {
@@ -297,13 +298,13 @@ public class SectionDActivity extends AppCompatActivity {
             motherSerial = "97";
         }
 
-        int fAge = fatheFMC != null ? Integer.valueOf(fatheFMC.getAge()) : 0;
-        int mAge = motherFMC != null ? Integer.valueOf(motherFMC.getAge()) : 0;
+        int fAge = fatheFMC != null ? Integer.parseInt(fatheFMC.getAge()) : 0;
+        int mAge = motherFMC != null ? Integer.parseInt(motherFMC.getAge()) : 0;
 
         if (fAge == 0 && mAge == 0) return true;
         int maxAge = fAge > mAge ? mAge != 0 ? mAge : fAge : fAge != 0 ? fAge : mAge;
 
-        return Integer.valueOf(Objects.requireNonNull(bi.d109.getText()).toString().trim()) <= maxAge - 10;
+        return Integer.parseInt(Objects.requireNonNull(bi.d109.getText()).toString().trim()) <= maxAge - 10;
     }
 
     public void BtnEnd() {
@@ -343,27 +344,31 @@ public class SectionDActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                bi.d109.setEnabled(false);
-                bi.d109.setText(null);
                 bi.d109a.setEnabled(false);
                 bi.d109a.setText(null);
-                /*if (bi.d108a.getText().toString().isEmpty() || bi.d108b.getText().toString().isEmpty() || bi.d108c.getText().toString().isEmpty())
-                    return;*/
+                bi.d109.setEnabled(false);
+                bi.d109.setText(null);
                 if (!bi.d108a.isRangeTextValidate() || !bi.d108b.isRangeTextValidate() || !bi.d108c.isRangeTextValidate())
                     return;
                 if (bi.d108a.getText().toString().equals("00") && bi.d108b.getText().toString().equals("00") && bi.d108c.getText().toString().equals("00")) {
-                    bi.d109.setEnabled(true);
                     bi.d109a.setEnabled(true);
+                    bi.d109.setEnabled(true);
+                    dtFlag = true;
                     return;
                 }
-                int day = bi.d108a.getText().toString().equals("00") ? 0 : Integer.valueOf(bi.d108a.getText().toString());
-                int month = Integer.valueOf(bi.d108b.getText().toString());
-                int year = Integer.valueOf(bi.d108c.getText().toString());
+                int day = bi.d108a.getText().toString().equals("00") ? 15 : Integer.parseInt(bi.d108a.getText().toString());
+                int month = Integer.parseInt(bi.d108b.getText().toString());
+                int year = Integer.parseInt(bi.d108c.getText().toString());
 
                 AgeModel age = DateRepository.Companion.getCalculatedAge(year, month, day);
-                if (age == null) return;
-                bi.d109.setText(String.valueOf(age.getYear()));
+                if (age == null) {
+                    bi.d108c.setError("Invalid date!!");
+                    dtFlag = false;
+                    return;
+                }
+                dtFlag = true;
                 bi.d109a.setText(String.valueOf(age.getMonth()));
+                bi.d109.setText(String.valueOf(age.getYear()));
             }
 
             @Override
@@ -390,7 +395,7 @@ public class SectionDActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (bi.d109.getText().toString().isEmpty()) return;
-                int calAge = Integer.valueOf(bi.d109.getText().toString());
+                int calAge = Integer.parseInt(bi.d109.getText().toString());
                 if (Integer.signum(calAge) == -1) return;
                 personInfoFunctionality(calAge);
             }

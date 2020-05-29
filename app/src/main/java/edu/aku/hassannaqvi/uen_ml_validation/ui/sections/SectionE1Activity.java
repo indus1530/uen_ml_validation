@@ -19,8 +19,8 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
+import edu.aku.hassannaqvi.uen_ml_validation.CONSTANTS;
 import edu.aku.hassannaqvi.uen_ml_validation.R;
 import edu.aku.hassannaqvi.uen_ml_validation.contracts.FamilyMembersContract;
 import edu.aku.hassannaqvi.uen_ml_validation.contracts.MWRAContract;
@@ -34,10 +34,9 @@ import static edu.aku.hassannaqvi.uen_ml_validation.ui.list_activity.FamilyMembe
 public class SectionE1Activity extends AppCompatActivity {
 
     ActivitySectionE1Binding bi;
-    List<String> womanNames;
-    Map<String, String> womanMap;
     int position;
     private MWRAContract mwra;
+    FamilyMembersContract selMWRA;
 
 
     @Override
@@ -64,6 +63,19 @@ public class SectionE1Activity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 position = i;
+                if (position == 0) return;
+                selMWRA = mainVModel.getMemberInfo(MainApp.pragnantWoman.getFirst().get(bi.womanSpinner.getSelectedItemPosition() - 1));
+                MainApp.selectedMWRAChildLst = mainVModel.getChildrenOfMother(selMWRA.getSerialno());
+                int child_size = MainApp.selectedMWRAChildLst.getFirst().size();
+                if (child_size > 0) {
+                    bi.e101a.setChecked(true);
+                    bi.e101b.setEnabled(false);
+                    bi.e102.setMinvalue(child_size);
+                } else {
+                    bi.e101.clearCheck();
+                    bi.e101b.setEnabled(true);
+                    bi.e102.setMinvalue(1);
+                }
             }
 
             @Override
@@ -95,7 +107,7 @@ public class SectionE1Activity extends AppCompatActivity {
     }
 
     public void BtnContinue() {
-        /*if (formValidation()) {
+        if (formValidation()) {
             try {
                 SaveDraft();
             } catch (Exception e) {
@@ -116,23 +128,7 @@ public class SectionE1Activity extends AppCompatActivity {
                 finish();
                 startActivity(next);
             }
-        }*/
-
-        if (formValidation()) {
-            try {
-                SaveDraft();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            if (UpdateDB()) {
-                finish();
-                startActivity(new Intent(this, SectionE3Activity.class));
-            } else {
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-            }
-
         }
-
     }
 
     private boolean UpdateDB() {
@@ -161,7 +157,6 @@ public class SectionE1Activity extends AppCompatActivity {
         mwra.setDevicetagID(MainApp.fc.getDevicetagID());
 
         JSONObject json = new JSONObject();
-        FamilyMembersContract selMWRA = mainVModel.getMemberInfo(MainApp.pragnantWoman.getFirst().get(bi.womanSpinner.getSelectedItemPosition() - 1));
         mwra.setFmuid(selMWRA.getUid());
         mwra.setFm_serial(selMWRA.getSerialno());
         json.put("fm_uid", selMWRA.getUid());
@@ -180,20 +175,8 @@ public class SectionE1Activity extends AppCompatActivity {
 
         json.put("e102", bi.e102.getText().toString());
 
-        /*json.put("e102a", bi.e102aa.isChecked() ? "1"
+        json.put("e102a", bi.e102aa.isChecked() ? "1"
                 : bi.e102ab.isChecked() ? "2"
-                : "0");*/
-
-        json.put("e104", bi.e104a.isChecked() ? "1"
-                : bi.e104b.isChecked() ? "2"
-                : "0");
-
-        json.put("e105", bi.e105a.isChecked() ? "1"
-                : bi.e105b.isChecked() ? "2"
-                : bi.e105c.isChecked() ? "3"
-                : bi.e105d.isChecked() ? "4"
-                : bi.e105e.isChecked() ? "5"
-                : bi.e105f.isChecked() ? "6"
                 : "0");
 
 
