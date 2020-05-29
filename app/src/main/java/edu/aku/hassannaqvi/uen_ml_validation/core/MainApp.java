@@ -51,7 +51,7 @@ public class MainApp extends Application {
     public static final Integer DAYS_LIMIT = 29;
     private static final String LANGUAGE_CODE_UR = "ur";
     //    private static final String LANGUAGE_CODE_SD = "sd";
-    public static final String _UPDATE_URL = MainApp._IP + "/uen_ml/app/ml/" + LANGUAGE_CODE_UR + "/";
+    public static final String _UPDATE_URL = MainApp._IP + "/uen_ml/app/validation/" + LANGUAGE_CODE_UR + "/";
     //public static final long MILLISECONDS_IN_5YEAR = (MILLISECONDS_IN_YEAR + MILLISECONDS_IN_YEAR + MILLISECONDS_IN_YEAR + MILLISECONDS_IN_YEAR + MILLISECONDS_IN_YEAR);
     private static final long MINIMUM_DISTANCE_CHANGE_FOR_UPDATES = 1; // in Meters
     private static final long MINIMUM_TIME_BETWEEN_UPDATES = 1000; // in Milliseconds

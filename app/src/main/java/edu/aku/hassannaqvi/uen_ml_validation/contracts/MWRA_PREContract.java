@@ -149,7 +149,7 @@ public class MWRA_PREContract {
 
     public static abstract class SingleMWRAPRE implements BaseColumns {
 
-        public static final String TABLE_NAME = "mwra_preg";
+        public static final String TABLE_NAME = "mwra_preg_validation";
         public static final String COLUMN__ID = "_id";
         public static final String COLUMN_UID = "_uid";
         public static final String COLUMN__UUID = "_uuid";
