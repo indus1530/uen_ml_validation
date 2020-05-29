@@ -25,7 +25,6 @@ import edu.aku.hassannaqvi.uen_ml_validation.contracts.FamilyMembersContract;
 import edu.aku.hassannaqvi.uen_ml_validation.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_ml_validation.core.MainApp;
 import edu.aku.hassannaqvi.uen_ml_validation.databinding.ActivitySectionI1Binding;
-import edu.aku.hassannaqvi.uen_ml_validation.ui.other.EndingActivity;
 import edu.aku.hassannaqvi.uen_ml_validation.utils.Util;
 import kotlin.Pair;
 
@@ -133,7 +132,7 @@ public class SectionI1Activity extends AppCompatActivity {
             }
             if (UpdateDB()) {
                 finish();
-                startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
+                startActivity(new Intent(this, SectionKActivity.class));
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
