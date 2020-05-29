@@ -9,22 +9,16 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import com.edittextpicker.aliazaz.EditTextPicker;
-import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import edu.aku.hassannaqvi.uen_ml_validation.CONSTANTS;
 import edu.aku.hassannaqvi.uen_ml_validation.R;
@@ -37,8 +31,6 @@ import edu.aku.hassannaqvi.uen_ml_validation.databinding.ActivitySectionE2Bindin
 import edu.aku.hassannaqvi.uen_ml_validation.datecollection.AgeModel;
 import edu.aku.hassannaqvi.uen_ml_validation.datecollection.DateRepository;
 import edu.aku.hassannaqvi.uen_ml_validation.utils.Util;
-
-import static edu.aku.hassannaqvi.uen_ml_validation.ui.list_activity.FamilyMembersListActivity.mainVModel;
 
 public class SectionE2Activity extends AppCompatActivity {
 
@@ -70,86 +62,13 @@ public class SectionE2Activity extends AppCompatActivity {
                 .append("Pregnancies Total: ").append(noOfPreCounter).append(" out of ").append(MainApp.noOfPragnencies));
         bi.btnNext.setText(noOfPreCounter == MainApp.noOfPragnencies ? getString(R.string.nextSection) : getString(R.string.nextPregnancy));
 
-        bi.e105.setOnCheckedChangeListener(((radioGroup, i) -> {
-
-            MainApp.twinFlag = i == bi.e105c.getId();
-            if (i == bi.e105b.getId()
-                    || i == bi.e105e.getId()
-                    || i == bi.e105f.getId()) {
-
-                bi.fldGrpCVd108.setVisibility(View.GONE);
-                bi.fldGrpCVe108.setVisibility(View.GONE);
-                bi.fldGrpCVd107.setVisibility(View.GONE);
-                bi.fldGrpCVe107.setVisibility(View.GONE);
-                bi.fldGrpCVe110.setVisibility(View.GONE);
-                Clear.clearAllFields(bi.fldGrpCVd108);
-                Clear.clearAllFields(bi.fldGrpCVe108);
-                Clear.clearAllFields(bi.fldGrpCVd107);
-                Clear.clearAllFields(bi.fldGrpCVe107);
-                Clear.clearAllFields(bi.fldGrpCVe110);
-                bi.mainContainer2.setVisibility(View.VISIBLE);
-            } else {
-                bi.fldGrpCVd108.setVisibility(View.VISIBLE);
-                bi.fldGrpCVe108.setVisibility(View.VISIBLE);
-                bi.fldGrpCVd107.setVisibility(View.VISIBLE);
-                bi.fldGrpCVe107.setVisibility(View.VISIBLE);
-                bi.fldGrpCVe110.setVisibility(View.VISIBLE);
-                bi.mainContainer2.setVisibility(View.GONE);
-                Clear.clearAllFields(bi.mainContainer2);
-            }
-
-        }));
-
-
-        bi.e108.setOnCheckedChangeListener(((radioGroup, i) -> {
-
-            if (i == bi.e108a.getId()) {
-                bi.mainContainer2.setVisibility(View.GONE);
-                Clear.clearAllFields(bi.mainContainer2);
-                bi.fldGrpCVd107.setVisibility(View.VISIBLE);
-
-                bi.fldGrpCVe109.setVisibility(View.GONE);
-                Clear.clearAllFields(bi.fldGrpCVe109);
-            } else {
-                bi.mainContainer2.setVisibility(View.VISIBLE);
-                bi.fldGrpCVe113.setVisibility(View.GONE);
-                bi.fldGrpCVe114.setVisibility(View.GONE);
-                bi.fldGrpCVe115.setVisibility(View.GONE);
-                bi.fldGrpCVd107.setVisibility(View.GONE);
-
-                Clear.clearAllFields(bi.fldGrpCVe113);
-                Clear.clearAllFields(bi.fldGrpCVe114);
-                Clear.clearAllFields(bi.fldGrpCVe115);
-                Clear.clearAllFields(bi.fldGrpCVd107);
-
-                if (!(bi.e105b.isChecked() || bi.e105e.isChecked() || bi.e105f.isChecked()))
-                    bi.fldGrpCVe109.setVisibility(View.VISIBLE);
-
-            }
-
-
-            if (i == bi.e105b.getId()
-                    || i == bi.e105e.getId()
-                    || i == bi.e105f.getId()) {
-                bi.mainContainer2.setVisibility(View.VISIBLE);
-            }
-
-
-        }));
-
-        bi.e106c.setMaxvalue(CONSTANTS.MAXYEAR);
-        bi.e106c.setMinvalue(CONSTANTS.MINYEAR);
-
-        bi.e113y.setMaxvalue(CONSTANTS.MAXYEAR);
-        bi.e113y.setMinvalue(CONSTANTS.MINYEAR);
-
-        editTextImplementation(new EditTextPicker[]{bi.e106a, bi.e106b, bi.e106c});
+        bi.e105.setOnCheckedChangeListener(((radioGroup, i) -> MainApp.twinFlag = i == bi.e105c.getId()));
 
     }
 
     private void setChildSpinner() {
 
-        List<String> childLst = new ArrayList<String>() {
+ /*       List<String> childLst = new ArrayList<String>() {
             {
                 add("....");
                 add("Not defined in List");
@@ -177,7 +96,7 @@ public class SectionE2Activity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {
 
             }
-        });
+        });*/
     }
 
     public void BtnContinue() {
@@ -234,8 +153,7 @@ public class SectionE2Activity extends AppCompatActivity {
     }
 
     private void clearContainer() {
-        Clear.clearAllFields(bi.container1);
-        Clear.clearAllFields(bi.mainContainer2);
+//        Clear.clearAllFields(bi.container1);
         bi.e104015.setVisibility(View.GONE);
         MainApp.twinFlag = false;
     }
@@ -285,66 +203,21 @@ public class SectionE2Activity extends AppCompatActivity {
                 : bi.e105f.isChecked() ? "6"
                 : "0");
 
-        json.put("e106a", bi.e106a.getText().toString());
-        json.put("e106b", bi.e106b.getText().toString());
-        json.put("e106c", bi.e106c.getText().toString());
-        json.put("e10698", bi.e10698.isChecked() ? "1" : "0");
-
-        json.put("e107", bi.e107a.isChecked() ? "1"
-                : bi.e107b.isChecked() ? "2"
-                : "0");
-
-        json.put("e108", bi.e108a.isChecked() ? "1"
-                : bi.e108b.isChecked() ? "2"
-                : "0");
-
-        json.put("e109", bi.e109.getText().toString());
+/*        json.put("e109", bi.e109.getText().toString());
 
         if (position != 1) {
             json.put("ch_serial", fmc_child.getSerialno());
             json.put("ch_name", fmc_child.getName());
             json.put("ch_uid", fmc_child.getUid());
-        }
-
-        json.put("e110a", bi.e110a.getText().toString());
-        json.put("e110b", bi.e110b.getText().toString());
-        json.put("e110c", bi.e110c.getText().toString());
-        json.put("e11098", bi.e11098.isChecked() ? "1" : "0");
-
-        json.put("e111", bi.e111a.isChecked() ? "1"
-                : bi.e111b.isChecked() ? "2"
-                : bi.e111c.isChecked() ? "3"
-                : bi.e111d.isChecked() ? "4"
-                : bi.e111e.isChecked() ? "5"
-                : bi.e111f.isChecked() ? "6"
-                : bi.e111g.isChecked() ? "7"
-                : bi.e11196.isChecked() ? "96"
-                : "0");
-        json.put("e11196x", bi.e11196x.getText().toString());
-
-        json.put("e112", bi.e112a.isChecked() ? "1"
-                : bi.e112b.isChecked() ? "2"
-                : bi.e112c.isChecked() ? "3"
-                : bi.e112d.isChecked() ? "4"
-                : bi.e112e.isChecked() ? "5"
-                : "0");
-
-        json.put("e113m", bi.e113m.getText().toString());
-        json.put("e113y", bi.e113y.getText().toString());
-
-        json.put("e114", bi.e114.getText().toString());
-
-        json.put("e115", bi.e115a.isChecked() ? "1"
-                : bi.e115b.isChecked() ? "2"
-                : "0");
+        }*/
 
         mwraPre.setsE2(String.valueOf(json));
 
         // Deleting item in list
-        if (position != 1) {
+/*        if (position != 1) {
             MainApp.selectedMWRAChildLst.getFirst().remove(position - 1);
             MainApp.selectedMWRAChildLst.getSecond().remove(position - 1);
-        }
+        }*/
 
     }
 
@@ -416,24 +289,7 @@ public class SectionE2Activity extends AppCompatActivity {
     }
 
     private boolean formValidation() {
-
-        if (!Validator.emptyCheckingContainer(this, bi.fldGrpSectionE2))
-            return false;
-
-        if (bi.fldGrpCVd108.getVisibility() == View.VISIBLE) {
-            if (!imFlag) {
-                Toast.makeText(this, "Invalid date!", Toast.LENGTH_SHORT).show();
-                return false;
-            }
-        }
-
-        if (!(bi.e105b.isChecked() || bi.e105e.isChecked() || bi.e105f.isChecked() || bi.e108a.isChecked()))
-            if ((Integer.parseInt(bi.e110a.getText().toString()) == 0 && Integer.parseInt(bi.e110b.getText().toString()) == 0 && Integer.parseInt(bi.e110c.getText().toString()) == 0)) {
-                Toast.makeText(this, "Invalid Date of Death!", Toast.LENGTH_SHORT).show();
-                return false;
-            }
-
-        return true;
+        return Validator.emptyCheckingContainer(this, bi.fldGrpSectionE2);
     }
 
     public void BtnEnd() {
