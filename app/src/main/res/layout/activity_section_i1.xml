@@ -456,8 +456,7 @@
                 <!-- i226  Radio   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVi226"
-                    style="@style/cardView"
-                    android:visibility='@{i225b.checked? View.GONE : View.VISIBLE}'>
+                    style="@style/cardView">
 
                     <LinearLayout
                         android:layout_width="match_parent"
