@@ -175,9 +175,9 @@ public class SectionE1Activity extends AppCompatActivity {
 
         json.put("e102", bi.e102.getText().toString());
 
-        json.put("e102a", bi.e102aa.isChecked() ? "1"
+        /*json.put("e102a", bi.e102aa.isChecked() ? "1"
                 : bi.e102ab.isChecked() ? "2"
-                : "0");
+                : "0");*/
 
 
         // Deleting item in list

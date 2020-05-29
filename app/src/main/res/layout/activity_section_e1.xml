@@ -121,7 +121,7 @@
                     </androidx.cardview.widget.CardView>
 
                     <!-- e102a  Radio   -->
-                    <androidx.cardview.widget.CardView
+                    <!--<androidx.cardview.widget.CardView
                         android:id="@+id/fldGrpCVe102a"
                         style="@style/cardView">
 
@@ -157,7 +157,7 @@
 
                         </LinearLayout>
 
-                    </androidx.cardview.widget.CardView>
+                    </androidx.cardview.widget.CardView>-->
 
 
                 </LinearLayout>
